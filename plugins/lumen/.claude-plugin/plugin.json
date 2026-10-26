@@ -1,0 +1,10 @@
+{
+  "name": "lumen",
+  "description": "Integrate the Lumen design system (LumenDesign Swift package) into SwiftUI apps for iOS 26+ and macOS 26+, and build UI that follows its rules.",
+  "version": "1.0.0",
+  "author": { "name": "Blake Crane" },
+  "homepage": "https://github.com/jbcrane13/lumen",
+  "repository": "https://github.com/jbcrane13/lumen",
+  "license": "Apache-2.0",
+  "keywords": ["swiftui", "design-system", "liquid-glass", "ios", "macos"]
+}

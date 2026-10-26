@@ -1,0 +1,12 @@
+{
+  "name": "lumen",
+  "description": "The Lumen SwiftUI design system for Claude Code",
+  "owner": { "name": "Blake Crane" },
+  "plugins": [
+    {
+      "name": "lumen",
+      "source": "./plugins/lumen",
+      "description": "Integrate the Lumen design system (LumenDesign Swift package) into SwiftUI apps and build UI that follows it."
+    }
+  ]
+}
