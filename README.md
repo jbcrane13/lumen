@@ -33,7 +33,7 @@ struct MyApp: App {
 }
 ```
 
-Set the project's `AccentColor` asset to `accent` (Light `#0066CC`, Dark `#0071E3`) so widgets and system UI outside SwiftUI match.
+Set the project's `AccentColor` asset to `accent` (Light `#3A6EA5`, Dark `#2F6AAE`) so widgets and system UI outside SwiftUI match.
 
 ## Use it with Claude Code
 

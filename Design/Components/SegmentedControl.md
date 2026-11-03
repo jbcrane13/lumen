@@ -26,3 +26,4 @@ Picker("Range", selection: $range) {
 - Do keep labels equally short so segments stay even.
 - Do place it in the toolbar (`ToolbarItem(placement: .principal)`) when it changes the whole screen.
 - Don't mix icons and text across segments.
+- Don't restyle the selected segment: the system draws it as a glass lens that slides between segments (`glass-lens` in the preview).

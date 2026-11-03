@@ -29,28 +29,22 @@ public extension Color {
         public static let separator = Color(light: RGBA(60, 60, 67, 0.29), dark: RGBA(84, 84, 88, 0.65))
         /// Hairlines that must not tint with what is behind them (table headers on macOS).
         public static let separatorOpaque = Color(light: RGBA(198, 198, 200, 1), dark: RGBA(56, 56, 58, 1))
-        /// The app tint: prominent button fills, selected tab glyph, switch on, slider fill. Holds white text at 4.5:1+ in both themes. Set as AccentColor in the asset catalog.
-        public static let accent = Color(light: RGBA(0, 102, 204, 1), dark: RGBA(0, 113, 227, 1))
-        /// Tinted text and glyphs (links, plain buttons, toolbar items) on bg, surface and glass. 5:1+ light, 5.2:1+ dark.
-        public static let accentText = Color(light: RGBA(0, 102, 204, 1), dark: RGBA(75, 161, 255, 1))
+        /// The app tint, a calm slate blue: prominent button fills, selected tab glyph, switch on, slider fill. White text on it: 5.3:1 light, 5.5:1 dark. Set as AccentColor in the asset catalog.
+        public static let accent = Color(light: RGBA(58, 110, 165, 1), dark: RGBA(47, 106, 174, 1))
+        /// Tinted text and glyphs (links, plain buttons, toolbar items) on bg, bg-grouped, surface, surface-raised and glass. 5.3:1+ light, 6.0:1+ dark.
+        public static let accentText = Color(light: RGBA(51, 102, 158, 1), dark: RGBA(127, 174, 224, 1))
         /// Text and glyphs on an accent fill.
         public static let onAccent = Color(light: RGBA(255, 255, 255, 1), dark: RGBA(255, 255, 255, 1))
-        /// Selected sidebar row, tinted bordered button, selection highlight. Opaque so its text holds contrast on any ground or glass: accent-text on it is 4.8:1 light, 5.0:1 dark.
-        public static let accentSoft = Color(light: RGBA(229, 239, 250, 1), dark: RGBA(18, 48, 79, 1))
+        /// Selected sidebar row and selection highlight. Opaque so its text holds contrast on any ground or glass: accent-text on it is 5.1:1 light, 5.7:1 dark.
+        public static let accentSoft = Color(light: RGBA(233, 239, 247, 1), dark: RGBA(29, 49, 73, 1))
         /// Keyboard focus ring on iPad and Mac: 3pt solid, 3:1+ on every ground in both themes.
-        public static let focusRing = Color(light: RGBA(0, 102, 204, 1), dark: RGBA(75, 161, 255, 1))
+        public static let focusRing = Color(light: RGBA(51, 102, 158, 1), dark: RGBA(127, 174, 224, 1))
         /// Confirmations, positive deltas, paired with checkmark.circle. Text-safe on bg, bg-grouped and surface.
         public static let success = Color(light: RGBA(29, 122, 51, 1), dark: RGBA(48, 209, 88, 1))
         /// Recoverable problems, paired with exclamationmark.triangle. Text-safe on bg, bg-grouped and surface.
         public static let warning = Color(light: RGBA(178, 80, 0, 1), dark: RGBA(255, 179, 64, 1))
         /// Destructive actions and errors, paired with a word or xmark.octagon. Text-safe on bg, bg-grouped and surface.
         public static let danger = Color(light: RGBA(215, 0, 21, 1), dark: RGBA(255, 105, 97, 1))
-        /// Web/preview stand-in for Liquid Glass (.glassEffect()). In SwiftUI never paint this: use the system material.
-        public static let glassFill = Color(light: RGBA(255, 255, 255, 0.62), dark: RGBA(44, 44, 46, 0.55))
-        /// 0.5pt rim on glass stand-ins; also the inner ring on the cover.
-        public static let glassStroke = Color(light: RGBA(255, 255, 255, 0.85), dark: RGBA(255, 255, 255, 0.16))
-        /// 1pt top specular edge on glass stand-ins and prominent buttons.
-        public static let glassHighlight = Color(light: RGBA(255, 255, 255, 0.9), dark: RGBA(255, 255, 255, 0.22))
         /// Dims content behind a large-detent sheet or alert.
         public static let scrim = Color(light: RGBA(0, 0, 0, 0.2), dark: RGBA(0, 0, 0, 0.48))
     }

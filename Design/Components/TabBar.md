@@ -19,7 +19,7 @@ TabView(selection: $tab) {
 }
 .tabViewStyle(.sidebarAdaptable)          // sidebar on iPad and Mac
 .tabBarMinimizeBehavior(.onScrollDown)    // shrinks while reading
-.tint(Color.Lumen.accent)
+.lumenTheme()
 ```
 
 ## The consumer provides
@@ -30,5 +30,5 @@ TabView(selection: $tab) {
 ## Do and don't
 
 - Do let content scroll under the bar; don't add a background behind it.
-- Do keep the selected glyph in `accent-text` via `.tint`; leave unselected ones `label`.
+- Do keep the selected glyph in `accent-text` via `.tint`; leave unselected ones `label`. The system marks the selected tab with a glass lens (`glass-lens` in the preview).
 - Don't hide the tab bar on pushed screens unless the screen is immersive (a photo viewer, a composer).

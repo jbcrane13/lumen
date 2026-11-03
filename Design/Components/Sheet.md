@@ -38,6 +38,7 @@ A modal card that slides up from the bottom; at medium height it floats inset fr
 
 ## Do and don't
 
-- Do keep the sheet's own content opaque (`surface`, nested rows on `surface-raised`); the system supplies the glass at partial height.
+- Do keep the sheet's own content opaque (rows on `surface-raised`); the system supplies thick glass at partial height and switches to an opaque `surface` at full height.
+- Do put explanatory text inside a row or a section footer, never loose on the glass.
 - Do use `.interactiveDismissDisabled(hasChanges)` and confirm before discarding edits.
 - Don't stack sheets more than one deep.

@@ -1,12 +1,12 @@
 # Button
 
-Capsule buttons in four weights: glass prominent for the one primary action, glass for secondary actions on glass, bordered for secondary actions on opaque content, plain for tertiary links.
+Capsule buttons in four weights: tinted glass prominent for the one primary action, glass for secondary actions on glass, soft tinted glass for secondary actions on opaque content, plain for tertiary links.
 
 ## When to use
 
 - `.glassProminent` + `.tint(Color.Lumen.accent)`: the single primary action of a screen or sheet (Continue, Done, Create). One per screen.
 - `.glass`: secondary actions that float over content (Not Now, toolbar-like circular buttons, a floating Add).
-- `.bordered`: secondary actions inside opaque content such as a card or list (Add Photos). Renders `accent-soft` behind `accent-text`.
+- `.lumenBordered`: secondary actions inside opaque content such as a card or list (Add Photos). Soft tinted glass (`accent-soft` tint) behind `accent-text`.
 - `.borderless` / plain: tertiary actions and inline links (Learn More), in `accent-text`.
 - `role: .destructive`: Delete, Remove, Sign Out. The system colours it `danger`; never fill it.
 

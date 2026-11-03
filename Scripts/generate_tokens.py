@@ -11,6 +11,9 @@ ROOT = Path(__file__).resolve().parent.parent
 TOKENS = ROOT / "Design" / "tokens.json"
 OUT = ROOT / "Sources" / "LumenDesign" / "Generated" / "LumenTokens.swift"
 
+# Stand-ins that let the web previews imitate Liquid Glass. SwiftUI draws real glass, so these are not exported.
+WEB_ONLY = {"glass-fill", "glass-fill-thick", "glass-lens", "glass-sheen", "glass-stroke", "glass-highlight", "accent-soft-glass"}
+
 
 def camel(name):
     parts = re.split(r"[-_.]", name)
@@ -69,6 +72,8 @@ def main():
         "    enum Lumen {",
     ]
     for c in t["color"]["tokens"]:
+        if c["name"] in WEB_ONLY:
+            continue
         light, dark = resolve(c, "light"), resolve(c, "dark")
         lines.append(doc(c.get("usage", ""), "        ").rstrip("\n"))
         lines.append(f"        public static let {camel(c['name'])} = Color(light: {rgba_literal(light)}, dark: {rgba_literal(dark)})")

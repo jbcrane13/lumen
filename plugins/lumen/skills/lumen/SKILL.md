@@ -101,9 +101,9 @@ targets:
    ```json
    {
      "colors" : [
-       { "color" : { "color-space" : "srgb", "components" : { "alpha" : "1.000", "red" : "0x00", "green" : "0x66", "blue" : "0xCC" } }, "idiom" : "universal" },
+       { "color" : { "color-space" : "srgb", "components" : { "alpha" : "1.000", "red" : "0x3A", "green" : "0x6E", "blue" : "0xA5" } }, "idiom" : "universal" },
        { "appearances" : [ { "appearance" : "luminosity", "value" : "dark" } ],
-         "color" : { "color-space" : "srgb", "components" : { "alpha" : "1.000", "red" : "0x00", "green" : "0x71", "blue" : "0xE3" } }, "idiom" : "universal" }
+         "color" : { "color-space" : "srgb", "components" : { "alpha" : "1.000", "red" : "0x2F", "green" : "0x6A", "blue" : "0xAE" } }, "idiom" : "universal" }
      ],
      "info" : { "author" : "xcode", "version" : 1 }
    }
@@ -127,7 +127,7 @@ targets:
 | Big numbers | `.lumenNumericDisplay()` |
 | Primary action | `.buttonStyle(.glassProminent)` (one per screen) |
 | Secondary action on glass | `.buttonStyle(.glass)` |
-| Secondary action on opaque content | `.buttonStyle(.lumenBordered)` |
+| Secondary action on opaque content | `.buttonStyle(.lumenBordered)` (soft accent-tinted glass) |
 | Tertiary / link | `.buttonStyle(.borderless)` |
 | Card | `.lumenCard()`; clip inner images with `ConcentricRectangle()` |
 | Status text | `LumenStatusLabel("…", status: .success / .warning / .danger)` |
@@ -139,7 +139,9 @@ targets:
 ### Rules
 
 - **System first.** Use SwiftUI's own `NavigationStack`, `NavigationSplitView`, `TabView` (`.tabViewStyle(.sidebarAdaptable)`, `Tab(role: .search)`), `List` (`.insetGrouped` on iOS), `Form`, `.toolbar`, `.searchable`, `.sheet`. They already render Liquid Glass. Don't rebuild them.
-- **Glass is for navigation only**: bars, toolbars, sidebars, floating buttons. Content (cards, rows, sections) is opaque `surface`. Never glass on glass, never glass on scrolling content, never a background behind toolbars or tab bars.
+- **Glass is the chrome layer, content stays opaque.** Glass belongs on tab bars, toolbars, sidebars, search fields, floating buttons, partial-height sheets, menus and popovers; the system draws all of these, plus the glass lens on the selected tab and segment. Cards, list rows, sections and media are opaque `surface`. Never glass on glass, never glass on scrolling content, never a background behind toolbars or tab bars.
+- **Two weights.** Regular glass (`.glassEffect()`) for bars, controls and floating buttons; panels that hold text (sheets, sidebars, popovers) get the system's thicker glass automatically. For a custom floating panel use `.glassEffect(.regular, in: .rect(cornerRadius: Lumen.Radius.xl))` and keep secondary text inside opaque rows: `labelSecondary` never sits on bare glass.
+- **Tinted glass is limited** to the one prominent button and `.lumenBordered` secondary buttons. Don't tint other glass.
 - **One tint.** `accent` comes from `.lumenTheme()`; don't apply `.tint` elsewhere except to give the one prominent button in a sheet its tint. Tinted text uses `accentText`, never `accent`.
 - **No literal values.** No hex, `Color(red:…)`, `.gray`, `.blue`, numeric paddings or radii in views: use the tokens. `.secondary` text → `Color.Lumen.labelSecondary`.
 - **Type through text styles only**, never `.system(size:)` except via `.lumenNumericDisplay()`. Bold titles come from `Font.Lumen`.

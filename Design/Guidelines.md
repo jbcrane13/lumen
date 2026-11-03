@@ -26,19 +26,29 @@ Tokens come in Light and Dark; SwiftUI resolves them from the asset catalog (see
 
 - Grounds: `bg` for plain lists and media; `bg-grouped` behind inset-grouped lists; `bg-window` for Mac window content. Rows, cards and sheets sit on them as `surface`; things nested inside a surface use `surface-raised`.
 - Text: `label` for anything a person must read; `label-secondary` for subtitles and values (it is darker than the system `.secondary` so it holds 4.5:1 on every ground); `label-tertiary` only for placeholders, disabled text and chevrons.
-- Tint: `accent` fills (prominent buttons, selected switch, slider) always carry `on-accent` text. Tinted text and glyphs use `accent-text`, which is brighter in Dark so it reads on black. Selected rows and tinted bordered buttons use `accent-soft` with `accent-text` on top.
+- Tint: `accent` fills (prominent buttons, selected switch, slider) always carry `on-accent` text. Tinted text and glyphs use `accent-text`, which is brighter in Dark so it reads on black. Selected rows use `accent-soft` with `accent-text` on top; bordered buttons use the same colour as a glass tint.
 - Status: `success`, `warning`, `danger` are text-safe on `bg`, `bg-grouped` and `surface`. Always pair them with an SF Symbol or a word; never let colour be the only signal.
 - Hairlines: `separator` at 0.5pt between rows, inset to the text's leading edge.
 
 ## Liquid Glass
 
-Glass is the navigation layer. It belongs on tab bars, toolbars, sidebars, floating action buttons, search fields at the bottom of the screen, and the controls inside them. SwiftUI's own bars, sheets, menus and popovers already use it: don't add glass to them again.
+Glass is the chrome layer: everything that floats above content and controls it. Content itself (cards, list rows, section backgrounds, media) stays opaque. Use glass where it helps a person see that something floats, and nowhere else; a screen should read as calm content with a few frosted controls on top.
+
+Where it belongs:
+
+- **Regular glass** (`.regular`): tab bars, toolbars and their button groups, search fields, floating action buttons, glass buttons such as Not Now. Frosted enough that labels read over busy content.
+- **Thick glass**: panels that hold text, such as partial-height sheets, sidebars, menus and popovers. The system draws these for you in SwiftUI; the web stand-in is `glass-fill-thick`.
+- **Lenses**: the small glass highlight that marks a selection inside a control (the selected tab, the segmented-control thumb). Drawn by the system; the stand-in is `glass-lens`.
+- **Tinted glass**: the one prominent button (`.glassProminent`, solid accent underneath so white text holds 5:1+) and bordered secondary buttons (`.lumenBordered`, a soft `accent-soft` tint).
+
+SwiftUI's own bars, sheets, menus, popovers, segmented controls and tab bars already use glass: don't add glass to them again.
 
 - Custom floating controls: `.glassEffect()` (default `.regular`, capsule shape). Make it respond to touch with `.glassEffect(.regular.interactive())`.
 - Primary action on glass: `.buttonStyle(.glassProminent)` with the accent as `.tint`. Secondary actions: `.buttonStyle(.glass)`.
 - Group neighbouring glass elements in one `GlassEffectContainer(spacing:)` (use `space-2`) so they blend and morph together instead of stacking.
-- Never stack glass on glass, never tint every glass element (tint only the one primary action), never put glass on scrolling content.
-- Reduce Transparency and Increase Contrast are handled by the system for real glass. The web stand-in in these previews (`glass-fill`, `glass-stroke`, `glass-highlight`, `glass-blur`, `shadow-glass`) exists only so the pages can show the look; do not port those values into SwiftUI.
+- Never stack glass on glass, never tint every glass element (tint only the primary action and bordered buttons), never put glass on scrolling content.
+- Secondary text (`label-secondary`) never sits on bare glass; put it inside an opaque row or use `label`.
+- Reduce Transparency and Increase Contrast are handled by the system for real glass. The web stand-in in these previews (`glass-fill`, `glass-fill-thick`, `glass-lens`, `glass-sheen`, `glass-stroke`, `glass-highlight`, `glass-blur`, `shadow-glass`) exists only so the pages can show the look; do not port those values into SwiftUI.
 
 ## Typography
 
