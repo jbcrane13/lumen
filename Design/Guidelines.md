@@ -47,7 +47,7 @@ SwiftUI's own bars, sheets, menus, popovers, segmented controls and tab bars alr
 - Primary action on glass: `.buttonStyle(.glassProminent)` with the accent as `.tint`. Secondary actions: `.buttonStyle(.glass)`.
 - Group neighbouring glass elements in one `GlassEffectContainer(spacing:)` (use `space-2`) so they blend and morph together instead of stacking.
 - Never stack glass on glass, never tint every glass element (tint only the primary action and bordered buttons), never put glass on scrolling content.
-- Secondary text (`label-secondary`) never sits on bare glass; put it inside an opaque row or use `label`.
+- Secondary text (`label-secondary`) never sits on regular glass over content (bars, floating controls); put it inside an opaque row or use `label`. Thick-glass panels (sheets, sidebars, popovers) are fine: it holds 5:1 there.
 - Reduce Transparency and Increase Contrast are handled by the system for real glass. The web stand-in in these previews (`glass-fill`, `glass-fill-thick`, `glass-lens`, `glass-sheen`, `glass-stroke`, `glass-highlight`, `glass-blur`, `shadow-glass`) exists only so the pages can show the look; do not port those values into SwiftUI.
 
 ## Typography
