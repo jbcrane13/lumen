@@ -3,16 +3,16 @@ import SwiftUI
 public extension Color {
     /// Lumen colour tokens. Each resolves its Light or Dark value from the current appearance.
     enum Lumen {
-        /// Plain lists, full-bleed content and the iOS screen behind everything. SwiftUI: Color(.systemBackground).
-        public static let bg = Color(light: RGBA(255, 255, 255, 1), dark: RGBA(0, 0, 0, 1))
-        /// Behind inset-grouped lists and settings screens. SwiftUI: Color(.systemGroupedBackground).
-        public static let bgGrouped = Color(light: RGBA(242, 242, 247, 1), dark: RGBA(0, 0, 0, 1))
+        /// Plain lists, full-bleed content and the iOS screen behind everything. A soft grey in Light rather than pure white, so use the Lumen colour, not Color(.systemBackground).
+        public static let bg = Color(light: RGBA(245, 245, 247, 1), dark: RGBA(0, 0, 0, 1))
+        /// Behind inset-grouped lists and settings screens. One step greyer than Color(.systemGroupedBackground) in Light.
+        public static let bgGrouped = Color(light: RGBA(236, 236, 240, 1), dark: RGBA(0, 0, 0, 1))
         /// macOS window content area behind the floating sidebar and inspector.
-        public static let bgWindow = Color(light: RGBA(245, 245, 247, 1), dark: RGBA(29, 29, 31, 1))
-        /// Rows and cards on bg-grouped; sheet content. SwiftUI: Color(.secondarySystemGroupedBackground).
-        public static let surface = Color(light: RGBA(255, 255, 255, 1), dark: RGBA(28, 28, 30, 1))
+        public static let bgWindow = Color(light: RGBA(239, 239, 242, 1), dark: RGBA(29, 29, 31, 1))
+        /// Rows and cards on bg-grouped; sheet content. An off-white in Light, never pure white.
+        public static let surface = Color(light: RGBA(251, 251, 252, 1), dark: RGBA(28, 28, 30, 1))
         /// Content nested inside a surface (a field inside a card, a popover row).
-        public static let surfaceRaised = Color(light: RGBA(242, 242, 247, 1), dark: RGBA(44, 44, 46, 1))
+        public static let surfaceRaised = Color(light: RGBA(240, 240, 243, 1), dark: RGBA(44, 44, 46, 1))
         /// Thin control fills: switch track off, slider track. SwiftUI: Color(.systemFill).
         public static let fill = Color(light: RGBA(120, 120, 128, 0.2), dark: RGBA(120, 120, 128, 0.36))
         /// Medium fills: grabbers, progress tracks.
@@ -22,7 +22,7 @@ public extension Color {
         /// Primary text and glyphs on every ground and on glass. SwiftUI: .primary.
         public static let label = Color(light: RGBA(0, 0, 0, 1), dark: RGBA(255, 255, 255, 1))
         /// Subtitles, row values, captions on bg, bg-grouped, surface and surface-raised (4.5:1 or better in both themes). Darker than SwiftUI .secondary on purpose.
-        public static let labelSecondary = Color(light: RGBA(110, 110, 115, 1), dark: RGBA(152, 152, 157, 1))
+        public static let labelSecondary = Color(light: RGBA(99, 99, 104, 1), dark: RGBA(152, 152, 157, 1))
         /// Placeholder text, disabled labels and chevrons only. Below 4.5:1 by design; never for information a person must read.
         public static let labelTertiary = Color(light: RGBA(174, 174, 178, 1), dark: RGBA(99, 99, 102, 1))
         /// 0.5pt hairlines between list rows and toolbar groups. SwiftUI: Color(.separator).
@@ -42,7 +42,7 @@ public extension Color {
         /// Confirmations, positive deltas, paired with checkmark.circle. Text-safe on bg, bg-grouped and surface.
         public static let success = Color(light: RGBA(29, 122, 51, 1), dark: RGBA(48, 209, 88, 1))
         /// Recoverable problems, paired with exclamationmark.triangle. Text-safe on bg, bg-grouped and surface.
-        public static let warning = Color(light: RGBA(178, 80, 0, 1), dark: RGBA(255, 179, 64, 1))
+        public static let warning = Color(light: RGBA(163, 73, 0, 1), dark: RGBA(255, 179, 64, 1))
         /// Destructive actions and errors, paired with a word or xmark.octagon. Text-safe on bg, bg-grouped and surface.
         public static let danger = Color(light: RGBA(215, 0, 21, 1), dark: RGBA(255, 105, 97, 1))
         /// Dims content behind a large-detent sheet or alert.
