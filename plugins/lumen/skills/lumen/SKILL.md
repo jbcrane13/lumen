@@ -129,6 +129,7 @@ targets:
 | Secondary action on glass | `.buttonStyle(.glass)` |
 | Secondary action on opaque content | `.buttonStyle(.lumenBordered)` (soft accent-tinted glass) |
 | Tertiary / link | `.buttonStyle(.borderless)` |
+| Screen background | `.lumenBackground()` on the `List`/`Form`/`ScrollView` (`.grouped` default, `.plain`, `.window`), plus `.lumenRowBackground()` on each `Section` |
 | Card | `.lumenCard()`; clip inner images with `ConcentricRectangle()` |
 | Status text | `LumenStatusLabel("…", status: .success / .warning / .danger)` |
 | List row icon | `LumenSettingsIcon("symbol.name")` |
@@ -143,6 +144,7 @@ targets:
 - **Two weights.** Regular glass (`.glassEffect()`) for bars, controls and floating buttons; panels that hold text (sheets, sidebars, popovers) get the system's thicker glass automatically. For a custom floating panel use `.glassEffect(.regular, in: .rect(cornerRadius: Lumen.Radius.xl))` and keep secondary text inside opaque rows: `labelSecondary` never sits on regular glass over content. Thick-glass panels (sheets, sidebars, popovers) can carry it.
 - **Tinted glass is limited** to the one prominent button and `.lumenBordered` secondary buttons. Don't tint other glass.
 - **One tint.** `accent` comes from `.lumenTheme()`; don't apply `.tint` elsewhere except to give the one prominent button in a sheet its tint. Tinted text uses `accentText`, never `accent`.
+- **Lumen grounds, not system white.** Every `List`, `Form` and top-level `ScrollView` gets `.lumenBackground()` (and its sections `.lumenRowBackground()`); SwiftUI's default backgrounds are pure white in Light, which Lumen does not use.
 - **No literal values.** No hex, `Color(red:…)`, `.gray`, `.blue`, numeric paddings or radii in views: use the tokens. `.secondary` text → `Color.Lumen.labelSecondary`.
 - **Type through text styles only**, never `.system(size:)` except via `.lumenNumericDisplay()`. Bold titles come from `Font.Lumen`.
 - **Status never by colour alone**: use `LumenStatusLabel` or pair the colour with a symbol and words.

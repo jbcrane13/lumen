@@ -102,8 +102,9 @@ Lumen ships as the Swift package `LumenDesign` (iOS 26+, macOS 26+). Its colours
 1. Add the package to the app target, then `import LumenDesign`.
 2. Call `.lumenTheme()` once at the root of each `WindowGroup`; it applies `accent` as the tint everywhere below.
 3. Set the project's `AccentColor` asset to the `accent` values so widgets and system UI outside SwiftUI match.
-4. Use the tokens by name: `Color.Lumen.labelSecondary`, `Lumen.Space.s4`, `Lumen.Radius.l`, `Font.Lumen.title3`. Use SwiftUI's own components the Lumen way (`.glassProminent`, `.glass`, `.insetGrouped`) and Lumen's additions where the system has no equivalent: `.buttonStyle(.lumenBordered)`, `.lumenCard()`, `.lumenNumericDisplay()`, `LumenStatusLabel`, `LumenSettingsIcon`.
-5. Where a system colour is identical, either is fine: `label` = `.primary`. Always use the Lumen colour for the grounds (`bg`, `bg-grouped`, `bg-window`, `surface`, `surface-raised`, which are soft greys in Light instead of the system's pure white), `label-secondary`, `accent-text`, `accent-soft` and the statuses, which differ on purpose.
+4. Use the tokens by name: `Color.Lumen.labelSecondary`, `Lumen.Space.s4`, `Lumen.Radius.l`, `Font.Lumen.title3`. Use SwiftUI's own components the Lumen way (`.glassProminent`, `.glass`, `.insetGrouped`) and Lumen's additions where the system has no equivalent: `.buttonStyle(.lumenBordered)`, `.lumenBackground()`, `.lumenRowBackground()`, `.lumenCard()`, `.lumenNumericDisplay()`, `LumenStatusLabel`, `LumenSettingsIcon`.
+5. Paint screens with the Lumen grounds: `.lumenBackground()` on each `List`, `Form` or top-level `ScrollView` (`.grouped` by default, `.plain` or `.window`), and `.lumenRowBackground()` on its sections so rows use `surface`. Without them SwiftUI draws its own pure-white backgrounds.
+6. Where a system colour is identical, either is fine: `label` = `.primary`. Always use the Lumen colour for the grounds (`bg`, `bg-grouped`, `bg-window`, `surface`, `surface-raised`, which are soft greys in Light instead of the system's pure white), `label-secondary`, `accent-text`, `accent-soft` and the statuses, which differ on purpose.
 
 A screen in Lumen:
 
@@ -119,8 +120,10 @@ struct LibraryView: View {
                         LabeledContent(item.title, value: item.date.formatted(.relative(presentation: .named)))
                     }
                 }
+                .lumenRowBackground()
             }
             .listStyle(.insetGrouped)
+            .lumenBackground()
             .navigationTitle("Library")
             .searchable(text: $query)
             .toolbar {

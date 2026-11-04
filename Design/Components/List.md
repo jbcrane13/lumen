@@ -28,12 +28,15 @@ List {
     } footer: {
         Text("Signed in as \(email)")
     }
+    .lumenRowBackground()
 
     Section {
         Button("Sign Out", role: .destructive) { signOut() }
     }
+    .lumenRowBackground()
 }
 .listStyle(.insetGrouped)
+.lumenBackground()
 
 struct SettingsIcon: View {
     let name: String
@@ -54,6 +57,7 @@ struct SettingsIcon: View {
 
 ## Do and don't
 
+- Do add `.lumenBackground()` to the list and `.lumenRowBackground()` to each section; otherwise SwiftUI paints both pure white in Light. Use `.lumenBackground(.plain)` for `.plain` lists.
 - Do let the system draw chevrons, separators and the pressed state (`fill-tertiary`).
 - Do use `LabeledContent` for value rows so VoiceOver reads label and value together.
 - Do keep icon tiles in `accent` with white glyphs; other colours fail contrast in Dark.

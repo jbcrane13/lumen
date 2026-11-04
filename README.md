@@ -58,6 +58,8 @@ Without installing anything, you can also say: "Use the Lumen design system from
 | `Font.Lumen.*` | Dynamic Type styles with Lumen's weights (bold titles, semibold title3) |
 | `.lumenNumericDisplay()` | Rounded bold 48pt numbers that scale with Dynamic Type and animate |
 | `.buttonStyle(.lumenBordered)` | Secondary button on opaque content (`accent-soft` capsule) |
+| `.lumenBackground(.grouped / .plain / .window)` | Paints a `List`, `Form` or `ScrollView` with a Lumen ground instead of system white |
+| `.lumenRowBackground()` | On a `Section` or `ForEach`: rows use `surface` instead of system white |
 | `.lumenCard()` | Opaque `surface` card, `radius-l`, concentric container shape |
 | `LumenStatusLabel(_:status:)` | Success / warning / danger text that always carries a symbol |
 | `LumenSettingsIcon(_:)` | Accent icon tile for list rows |

@@ -28,6 +28,7 @@ public struct LumenCatalog: View {
                             .buttonStyle(.borderless)
                     }
                 }
+                .lumenRowBackground()
 
                 Section {
                     Toggle(isOn: $notifications) {
@@ -47,12 +48,14 @@ public struct LumenCatalog: View {
                 } footer: {
                     Text("Toggles and pickers take the accent from lumenTheme().")
                 }
+                .lumenRowBackground()
 
                 Section("Status") {
                     LumenStatusLabel("Backed up today", status: .success)
                     LumenStatusLabel("Storage almost full", status: .warning)
                     LumenStatusLabel("Couldn't sync", status: .danger)
                 }
+                .lumenRowBackground()
 
                 Section("Card") {
                     VStack(alignment: .leading, spacing: Lumen.Space.s1) {
@@ -70,6 +73,7 @@ public struct LumenCatalog: View {
                     .listRowInsets(EdgeInsets())
                 }
             }
+            .lumenBackground()
             .navigationTitle("Lumen")
         }
         .lumenTheme()
